@@ -1,0 +1,201 @@
+/* Logo Keyframe Animation */
+
+@keyframes logoAnimation {
+    0% {width: 25px;
+        opacity: 0;
+    }
+    100% {width: 475px;
+        opacity: 1;
+    }
+}
+
+#logo {
+    animation: logoAnimation 5s;
+  }
+
+
+/* Body Font and Background Image */
+
+body{
+    font-family: 'Poppins', serif;
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
+}
+
+/* Page view smaller than 900px adjustments */
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Navigation Section */
+.nav_links{
+    display: flex;
+    flex-direction: column;
+}
+
+.nav_item a{
+     color: -webkit-link; 
+}
+
+.nav_item a:visited{
+    color: -webkit-link; /* Keeping the links the same color after being visited */
+}
+
+/* Card Section */
+.card > header{
+  background: #288088;
+  border: solid 2px #45ADAD;
+  padding: 20px 0; 
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.card{
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card Content */
+.pricing {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-around; 
+}
+
+/* Gallery Section */
+.gallery img {
+    border: solid 10px #50C7C7; 
+    margin: 10px; 
+    width: 300px;  
+}
+
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Page view for smaller than 900 ends */
+
+
+/* Page view is greater than 900px */
+
+@media (min-width: 900px) {
+
+    /* Header Section */
+    header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; 
+    }
+
+    /* Code to make the header always visible */
+    body > header{
+        position: sticky;
+        top: 0;
+    }
+
+    /* Navigation Adjustments */
+    .nav_links{
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* Card adjustments */
+    .pricing{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .card{
+        display: flex;
+        flex-direction: column; 
+        width: 275px;
+    }
+
+    /* Makes the cards different lengths, but aligned in the center */
+    .card:nth-child(odd){
+        align-self: center;
+    }
+}
+
+/* Page view is greater than 900px ends */
+
+
+/* Media Query for if prefers-reduced-motion is set to true, makes the logo not be animated */
+
+@media (prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none; 
+        width: 475px; 
+        opacity: 1;  
+    }
+}
+
+
+
+/* Print media query */
+
+@media print{
+
+    /* Changing the body of the print screen */
+    body {
+        font-family: Arial, Helvetica;
+        background-image: none;
+    }
+
+    /* Navigation changes */
+
+    nav{
+        width: 100%;
+    }
+
+    .nav_links{
+       
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    /* Card changes */
+    .pricing{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    .card{
+        border: solid 2px #45ADDD; 
+        flex-basis: 325px;
+        text-align: left;
+    }
+
+    /* Gallery does not display when printed */
+    #gallery{
+        display: none;
+      }
+    
+    .gallery{
+        display: none;
+    }
+
+    /* Adding the thumbs up emoji */
+    .card ul li:nth-child(2)::after {
+        content: '\1F44D'; 
+        font-size: 24px;
+        color: #ffcc00; 
+       
+    }
+
+}
+  
+
